@@ -1,2 +1,3 @@
 # pythonProject
-It is made for studying python
+Welcome!
+It is made for studying python.
