@@ -1,6 +1,9 @@
-import math
-r=10
-result = lambda r:math.pi*r*r
-print(result(r))
-r=20
-print(result(r))
+class Geese:
+    neck = "脖子长"
+    wing = "振翅频率高"
+    def __init__(self):
+        print("巫师三")
+        print(Geese.neck)
+        print(Geese.wing)
+Test = Geese()
+print(Test.neck)
