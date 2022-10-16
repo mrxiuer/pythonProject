@@ -12,17 +12,42 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):
-    def showMessage(self):
-        QMessageBox.information(MainWindow, "提示框", "欢迎进入PyQt5编程世界", QMessageBox.Yes | QMessageBox.No,
-                                QMessageBox.Yes)
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(170, 100, 81, 21))
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(170, 130, 151, 21))
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(170, 160, 55, 18))
+        self.label_3.setObjectName("label_3")
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(170, 190, 55, 18))
+        self.label_4.setObjectName("label_4")
+        self.comboBox = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox.setGeometry(QtCore.QRect(230, 100, 111, 31))
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(150, 110, 80, 26))
+        self.pushButton.setGeometry(QtCore.QRect(360, 100, 80, 26))
         self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(self.messsage)
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(360, 130, 80, 26))
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_3.setGeometry(QtCore.QRect(360, 160, 80, 26))
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_4.setGeometry(QtCore.QRect(360, 190, 80, 26))
+        self.pushButton_4.setObjectName("pushButton_4")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 23))
@@ -33,15 +58,26 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.pushButton.clicked.connect(self.showMessage) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    def messsage(self):
+        from PyQt5.QtWidgets import QMessageBox
+        QMessageBox.information(MainWindow,"警告","未开通此功能",QMessageBox.Ok)
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton.setText(_translate("MainWindow", "close"))
+        self.label.setText(_translate("MainWindow", "选择电影："))
+        self.label_2.setText(_translate("MainWindow", "主要城市评论数及平均分："))
+        self.label_3.setText(_translate("MainWindow", "热力图："))
+        self.label_4.setText(_translate("MainWindow", "词云图："))
+        self.comboBox.setItemText(0, _translate("MainWindow", "你好，李焕英"))
+        self.comboBox.setItemText(1, _translate("MainWindow", "TEst1"))
+        self.comboBox.setItemText(2, _translate("MainWindow", "新建项目"))
+        self.pushButton.setText(_translate("MainWindow", "分析"))
+        self.pushButton_2.setText(_translate("MainWindow", "查看"))
+        self.pushButton_3.setText(_translate("MainWindow", "查看"))
+        self.pushButton_4.setText(_translate("MainWindow", "查看"))
 import sys
-from PyQt5.QtWidgets import QMessageBox
 if __name__=='__main__':
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
