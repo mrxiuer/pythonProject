@@ -1,3 +1,4 @@
+
 import paddle
 import numpy as np
 from paddle.vision.transforms import Normalize
